@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=title %></title>
+
+    <link rel="stylesheet" href="/vendor/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/app.css"/>
+
+    <script src="/vendor/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <ul class="nav navbar-nav">
+        <li><a href="/">ЛОГО</a></li>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/card">Карта</a></li>
+        <li><a href="/card">История покупок</a></li>
+        <li><a href="/card">Купить билет</a></li>
+        <% if (user) { %>
+        <li><a href="/chat">Личные данные</a></li>
+        <% } %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/pay">Пополнить</a></li>
+        <% if (user) { %>
+        <li><a href="" onclick="$('<form method=POST action=/logout>').submit();return false">Выйти</a></form></li>
+        <% } else { %>
+        <li><a href="/login">Войти</a></li>
+        <% } %>
+    </ul>
+</nav>
