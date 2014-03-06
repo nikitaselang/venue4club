@@ -1,6 +1,6 @@
-var User = require('models/user').User;
-var HttpError = require('error').HttpError;
-var AuthError = require('models/user').AuthError;
+var User = require('../models/user').User;
+var HttpError = require('../error').HttpError;
+var AuthError = require('../models/user').AuthError;
 var async = require('async');
 
 exports.get = function (req, res) {
@@ -8,7 +8,7 @@ exports.get = function (req, res) {
 };
 
 exports.post = function (req, res, next) {
-    var username = req.body.username;
+    var username = req.body.email;
     var password = req.body.password;
 
 

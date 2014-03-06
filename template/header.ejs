@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=title %></title>
+    <title><%= title %></title>
 
     <link rel="stylesheet" href="/vendor/bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="/css/app.css"/>
@@ -16,9 +16,9 @@
         <li><a href="/">Главная</a></li>
         <li><a href="/card">Карта</a></li>
         <li><a href="/card">История покупок</a></li>
-        <li><a href="/card">Купить билет</a></li>
+        <li><a href="/account">Купить билет</a></li>
         <% if (user) { %>
-        <li><a href="/chat">Личные данные</a></li>
+        <li><a href="/account">Личные данные</a></li>
         <% } %>
     </ul>
     <ul class="nav navbar-nav navbar-right">

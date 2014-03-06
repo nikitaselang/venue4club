@@ -2,11 +2,11 @@ var crypto = require('crypto');
 var async = require('async');
 var util = require('util');
 
-var mongoose = require('libs/mongoose'),
+var mongoose = require('../libs/mongoose'),
     Schema = mongoose.Schema;
 
 var schema = new Schema({
-    username: {
+    email: {
         type: String,
         unique: true,
         required: true
@@ -23,43 +23,49 @@ var schema = new Schema({
         type: Date,
         default: Date.now
     }
+
 });
 
-schema.methods.encryptPassword = function(password) {
+schema.methods.encryptPassword = function (password) {
     return crypto.createHmac('sha1', this.salt).update(password).digest('hex');
 };
 
 schema.virtual('password')
-    .set(function(password) {
+    .set(function (password) {
         this._plainPassword = password;
         this.salt = Math.random() + '';
         this.hashedPassword = this.encryptPassword(password);
     })
-    .get(function() { return this._plainPassword; });
+    .get(function () {
+        return this._plainPassword;
+    });
 
 
-schema.methods.checkPassword = function(password) {
+schema.methods.checkPassword = function (password) {
     return this.encryptPassword(password) === this.hashedPassword;
 };
 
-schema.statics.authorize = function(username, password, callback) {
+schema.statics.authorize = function (email, password, callback) {
     var User = this;
 
     async.waterfall([
-        function(callback) {
-            User.findOne({username: username}, callback);
+        function (callback) {
+            User.findOne({email: email}, callback);
         },
-        function(user, callback) {
+        function (user, callback) {
             if (user) {
                 if (user.checkPassword(password)) {
                     callback(null, user);
                 } else {
                     callback(new AuthError("Пароль неверен"));
                 }
-            } else {
-                var user = new User({username: username, password: password});
-                user.save(function(err) {
+            }
+            //TODO: change logics
+            else {
+                var user = new User({email: email, password: password});
+                user.save(function (err) {
                     if (err) return callback(err);
+
                     callback(null, user);
                 });
             }
