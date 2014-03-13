@@ -1,3 +1,3 @@
-/**
- * Created by nikitaselenkov on 06/03/14.
- */
+exports.get = function (req, res) {
+    res.render('personalinfo');
+};

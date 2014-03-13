@@ -1,3 +1,2 @@
-/**
- * Created by nikitaselenkov on 06/03/14.
- */
+var card = {};
+card.init = function(){};

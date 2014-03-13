@@ -10,6 +10,8 @@ module.exports = function (app) {
     app.post('/logout', require('./logout').post);
 
     app.get('/account', require('./account').get);
+    app.get('/personalinfo', require('./personalinfo').get);
+    app.get('/card', require('./card').get);
 
     app.get('/chat', checkAuth, require('./chat').get);
 

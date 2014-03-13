@@ -1,0 +1,80 @@
+<head>
+    <link rel="stylesheet" href="/css/app.css"/>
+    <link rel="stylesheet" href="/css/sticky-footer-navbar.css"/>
+    <link rel="stylesheet" href="/css/personalinfo.css"/>
+
+    <!-- Bootstrap -->
+    <link href="/vendor/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/vendor/bower_components/respond/dst/html5shiv.js"></script>
+    <script src="/vendor/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/vendor/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="/js/personalinfo.js"></script>
+</head>
+
+<body>
+<% include menu.ejs %>
+
+
+<div class="page-header" style="padding-left: 60px">
+    <h1>Персональные данные</h1>
+</div>
+
+<form class="form-horizontal form-personal-info">
+    <div class="control-group">
+        <label class="control-label" for="firstname">Имя</label>
+        <div class="controls">
+            <input type="text" id="firstname" placeholder="Email">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="lastname">Фамилия</label>
+        <div class="controls">
+            <input type="text" id="lastname" placeholder="Фамилия">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputEmail">Email</label>
+        <div class="controls">
+            <input type="text" id="inputEmail" placeholder="Email">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="phone">Телефон</label>
+        <div class="controls">
+            <input type="text" id="phone" placeholder="Телефон">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="cardnumber">Карта</label>
+        <div class="controls">
+            <input type="text" id="cardnumber" placeholder="Карта">
+        </div>
+    </div>
+
+
+
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn">Сохранить</button>
+            <button type="reset" class="btn">Отменить</button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+<% include footer.ejs %>
+
+<script language="JavaScript">
+    $(document).ready(personalinfo.init);
+</script>
+</body>
