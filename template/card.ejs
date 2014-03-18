@@ -1,31 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <link rel="stylesheet" href="/css/app.css"/>
-    <link rel="stylesheet" href="/css/sticky-footer-navbar.css"/>
-    <link rel="stylesheet" href="/css/card.css"/>
-
-    <!-- Bootstrap -->
-    <link href="/vendor/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="/vendor/bower_components/respond/dst/html5shiv.js"></script>
-    <script src="/vendor/bower_components/respond/dest/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="/vendor/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
-    <script src="/js/card.js"></script>
+	<% include head.ejs %>
 </head>
-
-<body>
 
 <body>
 <% include menu.ejs %>
 <div class="page-content">
 
     <div class="page-header">
-        <h1>История покупок</h1>
+        <h1>История покупок по карте #<%= cardNumber %></h1>
     </div>
 
     <div class="panel panel-default">
@@ -33,7 +17,7 @@
       <!--  <div class="panel-heading">История покупок билетов</div> ->
 
         <!-- Table -->
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th>Дата покупки</th>
@@ -43,34 +27,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>12.01.2013 11:26</td>
-                <td>Marks and Spenser inda mix</td>
-                <td>1800 руб.</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>23.01.2013 15:33</td>
-                <td>Goldie</td>
-                <td>1800 руб.</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>04.08.2013 22:19</td>
-                <td>Esko-bar 10.08.2013 19:00</td>
-                <td>6400 руб.</td>
-                <td>4 VIP</td>
-            </tr>
-
+				<% orders.forEach(function(order){ %>
+					<tr>
+						<td><%= order.sellTime %></td>
+						<td><%= order.event %></td>
+						<td><%= order.sum %></td>
+						<td><%= order.tickets %><%if (order.isVip) { %>&nbsp;VIP<% } %></td>
+					</tr>
+				<% }) %>
             </tbody>
         </table>
     </div>
 
 </div>
 <% include footer.ejs %>
-
+<script src="/js/card.js"></script>
 <script language="JavaScript">
     $(document).ready(card.init);
 </script>
-
 </body>
+</html>

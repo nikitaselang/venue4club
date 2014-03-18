@@ -10,6 +10,7 @@ module.exports = function (app) {
     app.post('/logout', require('./logout').post);
 
     app.get('/account', require('./account').get);
+    app.get('/buyticket', require('./buyticket').get);
     app.get('/personalinfo', require('./personalinfo').get);
     app.get('/card', require('./card').get);
 

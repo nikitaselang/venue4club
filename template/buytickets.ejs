@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<% include head.ejs %>
+	<link rel="stylesheet" href="/css/buytickets.css"/>
+</head>
+
+<body>
+<% include menu.ejs %>
+<div class="page-content">
+
+    <div class="page-header">
+		<% 
+		function getVal(day){
+			day = (parseInt(day, 10) < 10 ) ? ('0'+day) : (day);
+			return day;
+		};
+		var d = new Date();
+		var s = getVal(d.getDate())+"."+ getVal(d.getMonth()+1) + "." + getVal(d.getFullYear()) %>
+        <h1>Афиша мероприятий на <%= s %> </h1>
+    </div>
+
+    <div class="row">
+		<div class="list-group">
+		<% if((typeof actions != "undefined") && (actions != null) && (actions.length>0)) {
+		 actions.forEach(function(action){ %>
+		  <a href="#" class="list-group-item">
+			<div class="row">
+				<div class="col-md-10">
+					<h3 class="list-group-item-heading"><%= action.name %></h3>
+					<h4 class="list-group-item-heading"><%= action.where %></h4>
+					<p class="list-group-item-text"><%= action.description %></p>
+				</div>
+				<div class="col-md-2">
+					<div class="row container">
+						<img class="media-object eventimage" src="<%= action.image %>" alt="...">
+					</div>
+					<div class="row container">&nbsp;</div>
+					<div class="row container">
+						<button type="button" class="btn btn-primary buybutton">Купить</button>
+					</div>
+				</div>
+				</div>
+				
+		</a>
+		<% }); 
+		} else { %>
+			<p class="text-warning bg-warning">События не найдены</p>
+		<% } %>
+		</div>		
+	</div>    
+
+</div>
+<% include footer.ejs %>
+<script src="/js/buytickets.js"></script>
+<script language="JavaScript">
+    $(document).ready(buytickets.init);
+</script>
+</body>
+</html>
