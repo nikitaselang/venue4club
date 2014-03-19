@@ -19,10 +19,10 @@ exports.get = function (req, res) {
 			isVip : true
 		}
 	];
-	
+
 	res.render('card', {
-		title: 'История действий по карте',
+		title : 'История действий по карте',
 		orders : orders,
-		cardNumber : 10912341454
+		cardNumber : '10912341454'
 	});
 }

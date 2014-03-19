@@ -1,5 +1,5 @@
 var personalinfo = {};
 
 personalinfo.init = function(){
- //   alert(1);
+	$("ul.navbar-nav>li").removeClass('active').find('a[href="/personalinfo"]').parent().addClass('active');	
 };
