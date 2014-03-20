@@ -33,9 +33,16 @@
 						<td><%= order.sellTime %></td>
 						<td><%= order.event %></td>
 						<td><%= order.sum %></td>
-						<td><%= order.tickets %><%if (order.isVip) { %>&nbsp;VIP<% } %></td>
+						<td><%= order.tickets %><%if (order.isVip) { %>&nbsp;VIP<% } %><a href="/orders?id=1234"><span class="pull-right label label-success">Скачать&nbsp;<span class="glyphicon glyphicon-cloud-download"></span></span></a></td>
 					</tr>
 				<% }) %>
+				<tr>
+						<td>23.01.2013 15:33</td>
+						<td>Goldie 2</td>
+						<td>1800</td>
+						<td><a href="/orders?id=1234">2<span data-toggle="tooltip" data-placement="right" title="Tooltip on right" class="pull-right glyphicon glyphicon-cloud-download"></span></a></td>
+						
+					</tr>
             </tbody>
         </table>
     </div>
