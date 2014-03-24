@@ -60,7 +60,31 @@ schema.statics.authorize = function (email, password, callback) {
                     callback(new AuthError("Пароль неверен"));
                 }
             }
-            //TODO: change logics
+            else {
+				callback(new AuthError("Пользователь с email " + email + " не найден"));
+                /* var user = new User({email: email, password: password});
+                user.save(function (err) {
+                    if (err) return callback(err);
+
+                    callback(null, user);
+                }); */
+            }
+        }
+    ], callback);
+};
+
+var HttpError = require('../error').HttpError;
+
+schema.statics.register = function (email, password, callback) {
+	var User = this;
+	async.waterfall([
+        function (callback) {
+            User.findOne({email: email}, callback);
+        },
+        function (user, callback) {
+            if (user) {
+                callback(new HttpError(403, "Пользователь с таким Email уже зарегистрирован. Попробуйте вспомнить пароль или восстановите доступ"));
+            }
             else {
                 var user = new User({email: email, password: password});
                 user.save(function (err) {

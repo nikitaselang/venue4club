@@ -9,13 +9,19 @@ module.exports = function (app) {
 
     app.post('/logout', require('./logout').post);
 
+	app.get('/registration', require('./registration').get);
+	app.post('/registration', require('./registration').post);
+	
+	
     app.get('/account', require('./account').get);
     app.get('/buyticket', require('./buyticket').get);
     app.get('/personalinfo', require('./personalinfo').get);
     app.get('/card', require('./card').get);
 
     app.get('/chat', checkAuth, require('./chat').get);
-
+	
+	app.get('/restore', require('./restore').get);
+	
 };
 
 

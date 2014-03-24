@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<% include head.ejs %>
+	<link rel="stylesheet" href="/css/signin.css"/>
+    <script src="/js/signin.js"></script>
+</head>
+
+<body>
+<% include menu.ejs %>
+
+<div class="container">
+    <form class="form-signin" role="form" id="login-form">
+        <h2 class="form-signin-heading">Восстановить доступ</h2>
+        <input type="email" name="email" class="form-control" placeholder="Введите ваш Email" required autofocus>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Отправить</button>
+
+        <span class="help-block error"></span>
+        <span>Если вы еще не зарегистрированы в системе, пройдите <a href="/registration">регистрацию</a></span>
+    </form>
+</div>
+<!-- container ends -->
+
+
+<% include footer.ejs %>
+<script language="JavaScript">
+	var restore = {};
+	restore.init = function(){
+		alert('inint');
+	};
+    $(document).ready(restore.init);
+</script>
+</body>
+</html>

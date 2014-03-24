@@ -12,7 +12,7 @@
 <div class="container">
     <form class="form-signin" role="form" id="login-form">
         <h2 class="form-signin-heading">Вход в систему</h2>
-        <input type="email" name="username" class="form-control" placeholder="Ваш Email" required autofocus>
+        <input type="email" name="email" class="form-control" placeholder="Ваш Email" required autofocus>
         <input type="password" name="password" class="form-control" placeholder="Пароль" required>
         <label class="checkbox">
             <input type="checkbox" value="remember-me"> Запомнить меня
@@ -20,6 +20,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
 
         <span class="help-block error"></span>
+        <span>Если вы еще не зарегистрированы в системе, пройдите <a href="/registration">регистрацию</a>. Не помните пароль? <a href="/restore">Восстановите</a> доступ.</span>
     </form>
 </div>
 <!-- container ends -->

@@ -1,17 +1,20 @@
 exports.get = function (req, res) {
 	var orders = [{
+			id: 10001,
 			sellTime : '12.01.2013 11:26',
 			event : 'Marks and Spenser in da mix',
 			sum : 1800,
 			tickets : 2,
 			isVip : false
 		}, {
+			id: 10002,
 			sellTime : '23.01.2013 15:33',
 			event : 'Goldie',
 			sum : 1800,
 			tickets : 2,
 			isVip : false
 		}, {
+			id: 10003,
 			sellTime : '04.08.2013 22:19',
 			event : 'Esko-bar 10.08.2013 19:00',
 			sum : 6400,

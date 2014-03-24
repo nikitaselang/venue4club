@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<% include head.ejs %>
+	<link rel="stylesheet" href="/css/signin.css"/>
+    <script src="/js/registration.js"></script>
+</head>
+
+<body>
+<% include menu.ejs %>
+
+<div class="container">
+
+<form class="form-horizontal" id="reg-form" role="form">
+
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-3 control-label">Email:</label>
+    <div class="col-sm-3">
+      <input type="email" name="email" class="form-control" id="inputEmail3" required placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-3 control-label">Пароль:</label>
+    <div class="col-sm-3">
+      <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Пароль">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="passwordRepeat" class="col-sm-3 control-label">Повтор пароля:</label>
+    <div class="col-sm-3">
+      <input type="password" name="passwordRepeat" class="form-control" id="passwordRepeat" placeholder="Повтор пароля">
+    </div>
+  </div>
+  <div class="form-group">
+	<label for="agree"  class="col-sm-3 control-label btn-group-vertical">Согласен с правилами:</label>
+	<div class="col-sm-3 btn-group-vertical">
+		<input type="checkbox" id="agree" name="agree" required />
+	</div>
+  </div>
+    <div class="col-sm-offset-3 col-sm-9">
+      <button type="submit" class="btn btn-default">Сохранить</button>
+	  <button type="reset" class="btn btn-default">Отменить</button>
+    </div>
+  </div>
+	<span class="help-block error"></span>
+</form>
+
+
+
+
+    <!--form class="form-signin" role="form" id="login-form">
+        <h2 class="form-signin-heading">Регистрация</h2>
+        <input type="email" name="email" class="form-control" placeholder="Ваш Email" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Пароль" required>
+        <input type="password" name="passwordConfirm" class="form-control" placeholder="Повтор пароля" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
+
+        <span class="help-block error"></span>
+    </form-->
+</div>
+<!-- container ends -->
+
+
+<% include footer.ejs %>
+<script language="JavaScript">
+    $(document).ready(registration.init);
+</script>
+</body>
+</html>
