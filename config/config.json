@@ -18,5 +18,10 @@
             "httpOnly":true,
             "maxAge":null
         }
-    }
+    },
+	"gmailer":{
+		"fromName": "Sender Name <selenkov@foggylab.ru>",
+		"login": "selenkov@foggylab.ru",
+		"password":""
+	}
 }

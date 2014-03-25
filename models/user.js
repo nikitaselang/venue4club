@@ -1,6 +1,7 @@
 var crypto = require('crypto');
 var async = require('async');
 var util = require('util');
+var lastMod = require('./lastMod');
 
 var mongoose = require('../libs/mongoose'),
     Schema = mongoose.Schema;
@@ -22,9 +23,20 @@ var schema = new Schema({
     created: {
         type: Date,
         default: Date.now
-    }
+    },
+	activationKey: {
+		type: String,
+		required: true
+	},
+	isEmailConfirmed: {
+		type: Boolean,
+		required: true,
+		default: false
+	}
 
 });
+
+schema.plugin(lastMod);
 
 schema.methods.encryptPassword = function (password) {
     return crypto.createHmac('sha1', this.salt).update(password).digest('hex');
@@ -86,7 +98,12 @@ schema.statics.register = function (email, password, callback) {
                 callback(new HttpError(403, "Пользователь с таким Email уже зарегистрирован. Попробуйте вспомнить пароль или восстановите доступ"));
             }
             else {
-                var user = new User({email: email, password: password});
+                var user = new User({
+					email: email, 
+					password: password,
+					activationKey : crypto.randomBytes(32).toString('hex')
+					});
+
                 user.save(function (err) {
                     if (err) return callback(err);
 

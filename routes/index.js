@@ -1,4 +1,7 @@
 var checkAuth = require('../middleware/checkAuth');
+var User = require('../models/user').User;
+var HttpError = require('../error').HttpError;
+var mailHelper = require('../libs/mailHelper');
 
 module.exports = function (app) {
 
@@ -11,6 +14,8 @@ module.exports = function (app) {
 
 	app.get('/registration', require('./registration').get);
 	app.post('/registration', require('./registration').post);
+	
+	app.get('/confirm', require('./confirm').get);
 	
 	
     app.get('/account', require('./account').get);
